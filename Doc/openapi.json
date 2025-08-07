@@ -106,6 +106,110 @@
             }
           }
         }
+      },
+      "put": {
+        "tags": ["Admin"],
+        "summary": "update the posts",
+        "description": "this end point to update information of producte from the admin section",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "ProductsID": {
+                    "type": "string"
+                  },
+                  "ProductsName": {
+                    "type": "string"
+                  },
+                  "ProductsShortDes": {
+                    "type": "string"
+                  },
+                  "ProductsDescription": {
+                    "type": "number"
+                  },
+                  "Price": {
+                    "type": "string"
+                  },
+                  "ImgURl": {
+                    "type": "array",
+                    "items": {
+                      "type": "string"
+                    }
+                  },
+                  "Categories": {
+                    "type": "array",
+                    "items": {
+                      "type": "string"
+                    }
+                  },
+                  "Size": {
+                    "type": "array",
+                    "items": {
+                      "type": "string"
+                    },
+                    "Color": {
+                      "type": "array",
+                      "items": {
+                        "type": "string"
+                      }
+                    },
+                    "ImgesURL": {
+                      "type": "array",
+                      "items": {
+                        "type": "string"
+                      }
+                    }
+                  },
+                  "example": {
+                    "ProductsID": "01JXNNDG6801F6DSKAZCFXWCWS",
+                    "ProductsName": "New Shirt",
+                    "ProductsShortDes": "Summer Collection",
+                    "ProductsDescription": "A nice summer shirt",
+                    "Price": 29.99,
+                    "ImgURl": "https://cdn.jsdelivr.net/gh/youruser/repo/images/main.jpg",
+                    "Categories": "clothing",
+                    "Size": ["XXL", "XS", "LS"],
+                    "Color": ["red", "blue"],
+                    "ImgesURL": [
+                      "https://cdn.jsdelivr.net/gh/youruser/repo/images/1.jpg",
+                      "https://cdn.jsdelivr.net/gh/youruser/repo/images/2.jpg"
+                    ]
+                  }
+                }
+              }
+            },
+            "responses": {
+              "200": {
+                "description": "OK",
+                "content": {
+                  "application/json": {
+                    "schema": {
+                      "type": "object",
+                      "properties": {
+                        "id": {
+                          "type": "string"
+                        },
+                        "message": {
+                          "type": "string"
+                        },
+                        "status": {
+                          "type": "string"
+                        }
+                      }
+                    },
+                    "example": {
+                      "id": "01JXNNDG6801F6DSKAZCFXWCWS",
+                      "message": "Product updated successfully",
+                      "status": "success"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
       }
     },
     "/Admin/Products/{id}": {
