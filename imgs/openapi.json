@@ -7,7 +7,7 @@
   },
   "servers": [
     {
-      "url": "https://e-comerce-think.onrender.com",
+      "url": " https://imgs-server-vxyd.onrender.com",
       "description": "Production server"
     }
   ],
@@ -25,24 +25,25 @@
                 "schema": {
                   "type": "object",
                   "properties": {
-                    "fileURLs": {
+                    "message": {
+                      "type": "string"
+                    },
+                    "results": {
                       "type": "array",
                       "items": {
                         "type": "string"
                       }
-                    },
-                    "message": {
-                      "type": "string"
-                    },
-                    "status": {
-                      "type": "string"
                     }
                   }
                 },
                 "example": {
-                  "fileURLs": ["1749739362074247198_mainImg.png"],
-                  "message": "1 files uploaded successfully",
-                  "status": "success"
+                  "message": "Images uploaded successfully!",
+                  "results": [
+                    {
+                      "image_url": "https://cdn.jsdelivr.net/gh/charaf007tmp/imgs@main/images/1754568435400675965_planet-astronomy-outer-space-blue-black-background-5k-8k-3840x2160-1515.jpg",
+                      "github_path": "images/1754568435400675965_planet-astronomy-outer-space-blue-black-background-5k-8k-3840x2160-1515.jpg"
+                    }
+                  ]
                 }
               }
             }
