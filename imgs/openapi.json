@@ -12,7 +12,7 @@
     }
   ],
   "paths": {
-    "/Admin/Products/imgs": {
+    "/upload": {
       "post": {
         "tags": ["Admin"],
         "summary": "Add product image",
