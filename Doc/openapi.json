@@ -1178,7 +1178,7 @@
                     "https://example.com/phones/2.jpg"
                   ],
                   "Size": null,
-                  "Color": ["أسود", "أزرق", "فضي"],
+                  "Color": ["أسود" , "أزرق", "فضي"],
                   "Categories": "2"
                 }
               }
