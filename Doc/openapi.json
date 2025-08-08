@@ -267,764 +267,73 @@
             }
           }
         }
-      }
-    },
-    "/Admin/Products/{id}": {
-      "put": {
-        "tags": ["Admin"],
-        "summary": "Modify product",
-        "description": "this end point modify on producte from the admin section",
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "OK"
-          }
-        }
       },
-      "delete": {
-        "tags": ["Admin"],
-        "summary": "Delete product",
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "OK"
-          }
-        }
-      }
-    },
-    "/Admin/Categorie": {
       "get": {
         "tags": ["Admin"],
-        "summary": "Get categories",
-        "responses": {
-          "200": {
-            "description": "OK",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "array",
-                  "items": {
-                    "type": "object",
-                    "properties": {
-                      "CategorieValue": {
-                        "type": "string"
-                      }
-                    }
-                  }
-                },
-                "example": [
-                  {
-                    "CategorieValue": "black"
-                  },
-                  {
-                    "CategorieValue": "UNI"
-                  },
-                  {
-                    "CategorieValue": "CLass"
-                  }
-                ]
-              }
-            }
-          },
-          "404": {
-            "description": "Not Found"
-          },
-          "500": {
-            "description": "Internal Server Error"
-          }
-        }
-      },
-      "post": {
-        "tags": ["Admin"],
-        "summary": "Add category",
+        "summary": "get all the products",
+        "description": "this end point to get all the products to the admin section",
         "requestBody": {
           "content": {
-            "application/json": {
-              "schema": {
-                "type": "object",
-                "properties": {
-                  "CategorieValue": {
-                    "type": "string"
-                  }
-                }
-              },
-              "example": {
-                "CategorieValue": "black"
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": "OK",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "object",
-                  "properties": {
-                    "id": {
-                      "type": "string"
-                    },
-                    "message": {
-                      "type": "string"
-                    },
-                    "status": {
-                      "type": "string"
-                    }
-                  }
-                },
-                "example": {
-                  "id": "black",
-                  "message": "Event created successfully",
-                  "status": "success"
-                }
-              }
-            }
-          }
-        }
-      },
-      "delete": {
-        "tags": ["Admin"],
-        "summary": "Delete category",
-        "responses": {
-          "200": {
-            "description": "OK"
-          },
-          "400": {
-            "description": "Bad Request"
-          },
-          "500": {
-            "description": "Internal Server Error"
-          }
-        }
-      }
-    },
-    "/Admin/Size": {
-      "get": {
-        "tags": ["Admin"],
-        "summary": "Get sizes",
-        "responses": {
-          "200": {
-            "description": "OK",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "array",
-                  "items": {
-                    "type": "object",
-                    "properties": {
-                      "size_value": {
-                        "type": "string"
-                      }
-                    }
-                  }
-                },
-                "example": [
-                  {
-                    "size_value": "XL"
-                  },
-                  {
-                    "size_value": "XXL"
-                  },
-                  {
-                    "size_value": "XS"
-                  },
-                  {
-                    "size_value": "XMAX"
-                  },
-                  {
-                    "size_value": "LS"
-                  }
-                ]
-              }
-            }
-          }
-        }
-      },
-      "post": {
-        "tags": ["Admin"],
-        "summary": "Add size",
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "type": "object",
-                "properties": {
-                  "size_value": {
-                    "type": "string"
-                  }
-                }
-              },
-              "example": {
-                "size_value": "XL"
-              }
-            }
-          }
-        },
-        "responses": {
-          "201": {
-            "description": "Created",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "object",
-                  "properties": {
-                    "Size Value": {
-                      "type": "string"
-                    },
-                    "message": {
-                      "type": "string"
-                    },
-                    "status": {
-                      "type": "string"
-                    }
-                  }
-                },
-                "example": {
-                  "Size Value": "XL",
-                  "message": "Size Value added successfully",
-                  "status": "success"
-                }
-              }
-            }
-          }
-        }
-      },
-      "delete": {
-        "tags": ["Admin"],
-        "summary": "Delete size",
-        "responses": {
-          "200": {
-            "description": "OK"
-          }
-        }
-      }
-    },
-    "/Admin/Colore": {
-      "get": {
-        "tags": ["Admin"],
-        "summary": "Get colores",
-        "responses": {
-          "200": {
-            "description": "OK",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "array",
-                  "items": {
-                    "type": "object",
-                    "properties": {
-                      "color_value": {
-                        "type": "string"
-                      }
-                    }
-                  }
-                },
-                "example": [
-                  {
-                    "color_value": "red"
-                  },
-                  {
-                    "color_value": "blue"
-                  },
-                  {
-                    "color_value": "#f5c211"
-                  },
-                  {
-                    "color_value": "#dc8add"
-                  },
-                  {
-                    "color_value": "test"
-                  },
-                  {
-                    "color_value": "#9141ac"
-                  },
-                  {
-                    "color_value": "#ffffff"
-                  }
-                ]
-              }
-            }
-          }
-        }
-      },
-      "post": {
-        "tags": ["Admin"],
-        "summary": "Add colore",
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "type": "object",
-                "properties": {
-                  "color_value": {
-                    "type": "string"
-                  }
-                }
-              },
-              "example": {
-                "color_value": "red"
-              }
-            }
-          }
-        },
-        "responses": {
-          "201": {
-            "description": "Created",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "object",
-                  "properties": {
-                    "Color Value": {
-                      "type": "string"
-                    },
-                    "message": {
-                      "type": "string"
-                    },
-                    "status": {
-                      "type": "string"
-                    }
-                  }
-                },
-                "example": {
-                  "Color Value": "red",
-                  "message": "Color Value added successfully",
-                  "status": "success"
-                }
-              }
-            }
-          }
-        }
-      },
-      "delete": {
-        "tags": ["Admin"],
-        "summary": "Delete colore",
-        "responses": {
-          "200": {
-            "description": "OK"
-          }
-        }
-      }
-    },
-    "/user/Search/{value}": {
-      "get": {
-        "tags": ["User"],
-        "summary": "Search",
-        "parameters": [
-          {
-            "name": "value",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "OK"
-          }
-        }
-      }
-    },
-    "/product/order": {
-      "post": {
-        "tags": ["Product"],
-        "summary": "Order product",
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "type": "object",
-                "properties": {
-                  "full_name": {
-                    "type": "string"
-                  },
-                  "user_state": {
-                    "type": "string"
-                  },
-                  "user_city": {
-                    "type": "string"
-                  },
-                  "full_address": {
-                    "type": "string"
-                  },
-                  "total_price": {
-                    "type": "number"
-                  },
-                  "orderitem": {
-                    "type": "array",
-                    "items": {
+            "responses": {
+              "200": {
+                "description": "OK",
+                "content": {
+                  "application/json": {
+                    "schema": {
                       "type": "object",
                       "properties": {
                         "product_id": {
                           "type": "string"
                         },
-                        "quantity": {
-                          "type": "integer"
+                        "prod_name": {
+                          "type": "string"
                         },
-                        "sizes_omitempty": {
-                          "type": "array",
-                          "items": {
-                            "type": "string"
-                          }
+                        "prod_min_dec": {
+                          "type": "string"
                         },
-                        "colors_omitempty": {
-                          "type": "array",
-                          "items": {
-                            "type": "string"
-                          }
+                        "prod_doc": {
+                          "type": "string"
+                        },
+                        "prod_price": {
+                          "type": "string"
+                        },
+                        "main_img": {
+                          "type": "string"
+                        },
+                        "categories": {
+                          "type": "string"
+                        },
+                        "product_status": {
+                          "type": "string"
                         }
                       }
+                    },
+                    "example": {
+                      "product_id": "01JXQPFNME9736QHE7ZQT9MZNT",
+                      "prod_name": "the new prod",
+                      "prod_min_dec": "sm desc",
+                      "prod_doc": "",
+                      "prod_price": 150,
+                      "main_img": "1749920681762115904_8sinkt on ig_.jpeg",
+                      "categories": "CLass",
+                      "product_status": true
                     }
                   }
                 }
-              },
-              "example": {
-                "full_name": "black",
-                "user_state": "Mila",
-                "user_city": "city",
-                "full_address": "full address",
-                "total_price": 2500,
-                "orderitem": [
-                  {
-                    "product_id": "01JXMW1TJR5G7Z5G4FGH257CEN",
-                    "quantity": 2,
-                    "sizes_omitempty": ["Xl", "XS"],
-                    "colors_omitempty": ["red", "blue"]
-                  },
-                  {
-                    "product_id": "01JXMW32RR5GRKQ821QK677KGK",
-                    "quantity": 2,
-                    "sizes_omitempty": ["Xl", "XXL"],
-                    "colors_omitempty": ["red", "blue"]
-                  }
-                ]
               }
             }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": "OK"
           }
         }
       }
     },
-    "/product/Uprice/{value}": {
-      "get": {
-        "tags": ["Product"],
-        "summary": "Get products under price",
-        "description": "Under Price",
+    "/Admin/Products/{id}": {
+      "put": {
+        "tags": ["Admin"],
+        "summary": "Modify the status of product",
+        "description": "this end point product_status from the admin section",
         "parameters": [
           {
-            "name": "value",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "OK",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "array",
-                  "items": {
-                    "type": "object",
-                    "properties": {
-                      "prod_id": {
-                        "type": "string"
-                      },
-                      "prod_name": {
-                        "type": "string"
-                      },
-                      "prod_min_dec": {
-                        "type": "string"
-                      },
-                      "prod_doc": {
-                        "type": "string"
-                      },
-                      "prod_price": {
-                        "type": "number"
-                      },
-                      "main_img": {
-                        "type": "string"
-                      },
-                      "categories_id": {
-                        "type": "string"
-                      }
-                    }
-                  }
-                },
-                "example": [
-                  {
-                    "prod_id": "c16ca34c-3e2b-11f0-b006-8c47be25572d",
-                    "prod_name": "سماعات بلوتوث",
-                    "prod_min_dec": "سماعات أذن لاسلكية بصوت عالي الجودة",
-                    "prod_doc": "",
-                    "prod_price": 0,
-                    "main_img": "https://example.com/headphones/main.jpg",
-                    "categories_id": "ملحقات الصوت"
-                  },
-                  {
-                    "prod_id": "c8c04d75-3e2b-11f0-b006-8c47be25572d",
-                    "prod_name": "ساعة ذكية",
-                    "prod_min_dec": "ساعة ذكية مقاومة للماء متعددة الوظائف",
-                    "prod_doc": "",
-                    "prod_price": 0,
-                    "main_img": "https://example.com/smartwatches/main.jpg",
-                    "categories_id": "أجهزة قابلة للارتداء"
-                  }
-                ]
-              }
-            }
-          }
-        }
-      }
-    },
-    "/product/Oprice/{value}": {
-      "get": {
-        "tags": ["Product"],
-        "summary": "Get products over price",
-        "parameters": [
-          {
-            "name": "value",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "OK",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "array",
-                  "items": {
-                    "type": "object",
-                    "properties": {
-                      "prod_id": {
-                        "type": "string"
-                      },
-                      "prod_name": {
-                        "type": "string"
-                      },
-                      "prod_min_dec": {
-                        "type": "string"
-                      },
-                      "prod_doc": {
-                        "type": "string"
-                      },
-                      "prod_price": {
-                        "type": "number"
-                      },
-                      "main_img": {
-                        "type": "string"
-                      },
-                      "categories_id": {
-                        "type": "string"
-                      }
-                    }
-                  }
-                },
-                "example": [
-                  {
-                    "prod_id": "2733f532-3a7b-11f0-8217-8c47be25572d",
-                    "prod_name": "هاتف ذكي",
-                    "prod_min_dec": "أحدث هاتف ذكي بشاشة 6.5 بوصة",
-                    "prod_doc": "",
-                    "prod_price": 0,
-                    "main_img": "https://example.com/phones/main.jpg",
-                    "categories_id": "2"
-                  },
-                  {
-                    "prod_id": "8433cc82-3e2a-11f0-a644-8c47be25572d",
-                    "prod_name": "حاسوب محمول",
-                    "prod_min_dec": "حاسوب محمول بشاشة 15.6 بوصة ومعالج i7",
-                    "prod_doc": "",
-                    "prod_price": 0,
-                    "main_img": "https://example.com/laptops/main.jpg",
-                    "categories_id": "أجهزة كمبيوتر"
-                  },
-                  {
-                    "prod_id": "ce0b3e75-3e2b-11f0-b006-8c47be25572d",
-                    "prod_name": "جهاز لوحي",
-                    "prod_min_dec": "تابلت بشاشة 10.1 بوصة وذاكرة 64GB",
-                    "prod_doc": "",
-                    "prod_price": 0,
-                    "main_img": "https://example.com/tablets/main.jpg",
-                    "categories_id": "أجهزة لوحية"
-                  },
-                  {
-                    "prod_id": "d34516b8-3e2b-11f0-b006-8c47be25572d",
-                    "prod_name": "شاشة عرض",
-                    "prod_min_dec": "شاشة LED بدقة 4K مقاس 32 بوصة",
-                    "prod_doc": "",
-                    "prod_price": 0,
-                    "main_img": "https://example.com/monitors/main.jpg",
-                    "categories_id": "شاشات"
-                  }
-                ]
-              }
-            }
-          }
-        }
-      }
-    },
-    "/product/getallproducts": {
-      "get": {
-        "tags": ["Product"],
-        "summary": "Get all products",
-        "responses": {
-          "200": {
-            "description": "OK",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "array",
-                  "items": {
-                    "type": "object",
-                    "properties": {
-                      "prod_id": {
-                        "type": "string"
-                      },
-                      "prod_name": {
-                        "type": "string"
-                      },
-                      "prod_min_dec": {
-                        "type": "string"
-                      },
-                      "prod_doc": {
-                        "type": "string"
-                      },
-                      "prod_price": {
-                        "type": "number"
-                      },
-                      "main_img": {
-                        "type": "string"
-                      },
-                      "categories_id": {
-                        "type": "string"
-                      }
-                    }
-                  }
-                },
-                "example": [
-                  {
-                    "prod_id": "2733f532-3a7b-11f0-8217-8c47be25572d",
-                    "prod_name": "هاتف ذكي",
-                    "prod_min_dec": "أحدث هاتف ذكي بشاشة 6.5 بوصة",
-                    "prod_doc": "",
-                    "prod_price": 0,
-                    "main_img": "https://example.com/phones/main.jpg",
-                    "categories_id": "2"
-                  }
-                ]
-              }
-            }
-          }
-        }
-      }
-    },
-    "/product/Categorie/{value}": {
-      "get": {
-        "tags": ["Product"],
-        "summary": "Get products by category",
-        "description": "retrieves products by category.",
-        "parameters": [
-          {
-            "name": "value",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "OK",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "array",
-                  "items": {
-                    "type": "object",
-                    "properties": {
-                      "prod_id": {
-                        "type": "string"
-                      },
-                      "prod_name": {
-                        "type": "string"
-                      },
-                      "prod_min_dec": {
-                        "type": "string"
-                      },
-                      "prod_doc": {
-                        "type": "string"
-                      },
-                      "prod_price": {
-                        "type": "number"
-                      },
-                      "main_img": {
-                        "type": "string"
-                      },
-                      "categories_id": {
-                        "type": "string"
-                      }
-                    }
-                  }
-                },
-                "example": [
-                  {
-                    "prod_id": "d34516b8-3e2b-11f0-b006-8c47be25572d",
-                    "prod_name": "شاشة عرض",
-                    "prod_min_dec": "شاشة LED بدقة 4K مقاس 32 بوصة",
-                    "prod_doc": "",
-                    "prod_price": 0,
-                    "main_img": "https://example.com/monitors/main.jpg",
-                    "categories_id": "شاشات"
-                  }
-                ]
-              }
-            }
-          }
-        }
-      }
-    },
-    "/product/contentprod/{prod_id}": {
-      "get": {
-        "tags": ["Product"],
-        "summary": "Get product content",
-        "parameters": [
-          {
-            "name": "prod_id",
+            "name": "id",
             "in": "path",
             "required": true,
             "schema": {
@@ -1040,63 +349,838 @@
                 "schema": {
                   "type": "object",
                   "properties": {
-                    "ProductsID": {
+                    "ProdID": {
                       "type": "string"
                     },
-                    "ProductsName": {
+                    "message": {
                       "type": "string"
                     },
-                    "ProductsShortDes": {
-                      "type": "string"
-                    },
-                    "ProductsDescription": {
-                      "type": "string"
-                    },
-                    "Price": {
-                      "type": "number"
-                    },
-                    "ImgURl": {
-                      "type": "string"
-                    },
-                    "ImgesURL": {
-                      "type": "array",
-                      "items": {
-                        "type": "string"
-                      }
-                    },
-                    "Size": {
-                      "type": "array",
-                      "items": {
-                        "type": "string"
-                      },
-                      "nullable": true
-                    },
-                    "Color": {
-                      "type": "array",
-                      "items": {
-                        "type": "string"
-                      }
-                    },
-                    "Categories": {
+                    "status": {
                       "type": "string"
                     }
                   }
                 },
                 "example": {
-                  "ProductsID": "2733f532-3a7b-11f0-8217-8c47be25572d",
-                  "ProductsName": "هاتف ذكي",
-                  "ProductsShortDes": "أحدث هاتف ذكي بشاشة 6.5 بوصة",
-                  "ProductsDescription": "هاتف ذكي بمعالج ثماني النواة، كاميرا ثلاثية العدسة، شاشة AMOLED",
-                  "Price": 1599.99,
-                  "ImgURl": "https://example.com/phones/main.jpg",
-                  "ImgesURL": [
-                    "https://example.com/phones/1.jpg",
-                    "https://example.com/phones/2.jpg"
-                  ],
-                  "Size": null,
-                  "Color": ["أسود", "أزرق", "فضي"],
-                  "Categories": "2"
+                  "ProdID": "01JXQPTBQPHAFY3YQY6TYQQ7MR",
+                  "message": "Events updated successfully",
+                  "status": "success"
                 }
+              }
+            }
+          }
+        }
+      }
+    },
+    "delete": {
+      "tags": ["Admin"],
+      "summary": "Delete product",
+      "parameters": [
+        {
+          "name": "id",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        }
+      ],
+      "responses": {
+        "200": {
+          "description": "OK"
+        }
+      }
+    }
+  },
+  "/Admin/Categorie": {
+    "get": {
+      "tags": ["Admin"],
+      "summary": "Get categories",
+      "responses": {
+        "200": {
+          "description": "OK",
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "CategorieValue": {
+                      "type": "string"
+                    }
+                  }
+                }
+              },
+              "example": [
+                {
+                  "CategorieValue": "black"
+                },
+                {
+                  "CategorieValue": "UNI"
+                },
+                {
+                  "CategorieValue": "CLass"
+                }
+              ]
+            }
+          }
+        },
+        "404": {
+          "description": "Not Found"
+        },
+        "500": {
+          "description": "Internal Server Error"
+        }
+      }
+    },
+    "post": {
+      "tags": ["Admin"],
+      "summary": "Add category",
+      "requestBody": {
+        "content": {
+          "application/json": {
+            "schema": {
+              "type": "object",
+              "properties": {
+                "CategorieValue": {
+                  "type": "string"
+                }
+              }
+            },
+            "example": {
+              "CategorieValue": "black"
+            }
+          }
+        }
+      },
+      "responses": {
+        "200": {
+          "description": "OK",
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "type": "string"
+                  },
+                  "message": {
+                    "type": "string"
+                  },
+                  "status": {
+                    "type": "string"
+                  }
+                }
+              },
+              "example": {
+                "id": "black",
+                "message": "Event created successfully",
+                "status": "success"
+              }
+            }
+          }
+        }
+      }
+    },
+    "delete": {
+      "tags": ["Admin"],
+      "summary": "Delete category",
+      "responses": {
+        "200": {
+          "description": "OK"
+        },
+        "400": {
+          "description": "Bad Request"
+        },
+        "500": {
+          "description": "Internal Server Error"
+        }
+      }
+    }
+  },
+  "/Admin/Size": {
+    "get": {
+      "tags": ["Admin"],
+      "summary": "Get sizes",
+      "responses": {
+        "200": {
+          "description": "OK",
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "size_value": {
+                      "type": "string"
+                    }
+                  }
+                }
+              },
+              "example": [
+                {
+                  "size_value": "XL"
+                },
+                {
+                  "size_value": "XXL"
+                },
+                {
+                  "size_value": "XS"
+                },
+                {
+                  "size_value": "XMAX"
+                },
+                {
+                  "size_value": "LS"
+                }
+              ]
+            }
+          }
+        }
+      }
+    },
+    "post": {
+      "tags": ["Admin"],
+      "summary": "Add size",
+      "requestBody": {
+        "content": {
+          "application/json": {
+            "schema": {
+              "type": "object",
+              "properties": {
+                "size_value": {
+                  "type": "string"
+                }
+              }
+            },
+            "example": {
+              "size_value": "XL"
+            }
+          }
+        }
+      },
+      "responses": {
+        "201": {
+          "description": "Created",
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "Size Value": {
+                    "type": "string"
+                  },
+                  "message": {
+                    "type": "string"
+                  },
+                  "status": {
+                    "type": "string"
+                  }
+                }
+              },
+              "example": {
+                "Size Value": "XL",
+                "message": "Size Value added successfully",
+                "status": "success"
+              }
+            }
+          }
+        }
+      }
+    },
+    "delete": {
+      "tags": ["Admin"],
+      "summary": "Delete size",
+      "responses": {
+        "200": {
+          "description": "OK"
+        }
+      }
+    }
+  },
+  "/Admin/Colore": {
+    "get": {
+      "tags": ["Admin"],
+      "summary": "Get colores",
+      "responses": {
+        "200": {
+          "description": "OK",
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "color_value": {
+                      "type": "string"
+                    }
+                  }
+                }
+              },
+              "example": [
+                {
+                  "color_value": "red"
+                },
+                {
+                  "color_value": "blue"
+                },
+                {
+                  "color_value": "#f5c211"
+                },
+                {
+                  "color_value": "#dc8add"
+                },
+                {
+                  "color_value": "test"
+                },
+                {
+                  "color_value": "#9141ac"
+                },
+                {
+                  "color_value": "#ffffff"
+                }
+              ]
+            }
+          }
+        }
+      }
+    },
+    "post": {
+      "tags": ["Admin"],
+      "summary": "Add colore",
+      "requestBody": {
+        "content": {
+          "application/json": {
+            "schema": {
+              "type": "object",
+              "properties": {
+                "color_value": {
+                  "type": "string"
+                }
+              }
+            },
+            "example": {
+              "color_value": "red"
+            }
+          }
+        }
+      },
+      "responses": {
+        "201": {
+          "description": "Created",
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "Color Value": {
+                    "type": "string"
+                  },
+                  "message": {
+                    "type": "string"
+                  },
+                  "status": {
+                    "type": "string"
+                  }
+                }
+              },
+              "example": {
+                "Color Value": "red",
+                "message": "Color Value added successfully",
+                "status": "success"
+              }
+            }
+          }
+        }
+      }
+    },
+    "delete": {
+      "tags": ["Admin"],
+      "summary": "Delete colore",
+      "responses": {
+        "200": {
+          "description": "OK"
+        }
+      }
+    }
+  },
+  "/user/Search/{value}": {
+    "get": {
+      "tags": ["User"],
+      "summary": "Search",
+      "parameters": [
+        {
+          "name": "value",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        }
+      ],
+      "responses": {
+        "200": {
+          "description": "OK"
+        }
+      }
+    }
+  },
+  "/product/order": {
+    "post": {
+      "tags": ["Product"],
+      "summary": "Order product",
+      "requestBody": {
+        "content": {
+          "application/json": {
+            "schema": {
+              "type": "object",
+              "properties": {
+                "full_name": {
+                  "type": "string"
+                },
+                "user_state": {
+                  "type": "string"
+                },
+                "user_city": {
+                  "type": "string"
+                },
+                "full_address": {
+                  "type": "string"
+                },
+                "total_price": {
+                  "type": "number"
+                },
+                "orderitem": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "product_id": {
+                        "type": "string"
+                      },
+                      "quantity": {
+                        "type": "integer"
+                      },
+                      "sizes_omitempty": {
+                        "type": "array",
+                        "items": {
+                          "type": "string"
+                        }
+                      },
+                      "colors_omitempty": {
+                        "type": "array",
+                        "items": {
+                          "type": "string"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            },
+            "example": {
+              "full_name": "black",
+              "user_state": "Mila",
+              "user_city": "city",
+              "full_address": "full address",
+              "total_price": 2500,
+              "orderitem": [
+                {
+                  "product_id": "01JXMW1TJR5G7Z5G4FGH257CEN",
+                  "quantity": 2,
+                  "sizes_omitempty": ["Xl", "XS"],
+                  "colors_omitempty": ["red", "blue"]
+                },
+                {
+                  "product_id": "01JXMW32RR5GRKQ821QK677KGK",
+                  "quantity": 2,
+                  "sizes_omitempty": ["Xl", "XXL"],
+                  "colors_omitempty": ["red", "blue"]
+                }
+              ]
+            }
+          }
+        }
+      },
+      "responses": {
+        "200": {
+          "description": "OK"
+        }
+      }
+    }
+  },
+  "/product/Uprice/{value}": {
+    "get": {
+      "tags": ["Product"],
+      "summary": "Get products under price",
+      "description": "Under Price",
+      "parameters": [
+        {
+          "name": "value",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        }
+      ],
+      "responses": {
+        "200": {
+          "description": "OK",
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "prod_id": {
+                      "type": "string"
+                    },
+                    "prod_name": {
+                      "type": "string"
+                    },
+                    "prod_min_dec": {
+                      "type": "string"
+                    },
+                    "prod_doc": {
+                      "type": "string"
+                    },
+                    "prod_price": {
+                      "type": "number"
+                    },
+                    "main_img": {
+                      "type": "string"
+                    },
+                    "categories_id": {
+                      "type": "string"
+                    }
+                  }
+                }
+              },
+              "example": [
+                {
+                  "prod_id": "c16ca34c-3e2b-11f0-b006-8c47be25572d",
+                  "prod_name": "سماعات بلوتوث",
+                  "prod_min_dec": "سماعات أذن لاسلكية بصوت عالي الجودة",
+                  "prod_doc": "",
+                  "prod_price": 0,
+                  "main_img": "https://example.com/headphones/main.jpg",
+                  "categories_id": "ملحقات الصوت"
+                },
+                {
+                  "prod_id": "c8c04d75-3e2b-11f0-b006-8c47be25572d",
+                  "prod_name": "ساعة ذكية",
+                  "prod_min_dec": "ساعة ذكية مقاومة للماء متعددة الوظائف",
+                  "prod_doc": "",
+                  "prod_price": 0,
+                  "main_img": "https://example.com/smartwatches/main.jpg",
+                  "categories_id": "أجهزة قابلة للارتداء"
+                }
+              ]
+            }
+          }
+        }
+      }
+    }
+  },
+  "/product/Oprice/{value}": {
+    "get": {
+      "tags": ["Product"],
+      "summary": "Get products over price",
+      "parameters": [
+        {
+          "name": "value",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        }
+      ],
+      "responses": {
+        "200": {
+          "description": "OK",
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "prod_id": {
+                      "type": "string"
+                    },
+                    "prod_name": {
+                      "type": "string"
+                    },
+                    "prod_min_dec": {
+                      "type": "string"
+                    },
+                    "prod_doc": {
+                      "type": "string"
+                    },
+                    "prod_price": {
+                      "type": "number"
+                    },
+                    "main_img": {
+                      "type": "string"
+                    },
+                    "categories_id": {
+                      "type": "string"
+                    }
+                  }
+                }
+              },
+              "example": [
+                {
+                  "prod_id": "2733f532-3a7b-11f0-8217-8c47be25572d",
+                  "prod_name": "هاتف ذكي",
+                  "prod_min_dec": "أحدث هاتف ذكي بشاشة 6.5 بوصة",
+                  "prod_doc": "",
+                  "prod_price": 0,
+                  "main_img": "https://example.com/phones/main.jpg",
+                  "categories_id": "2"
+                },
+                {
+                  "prod_id": "8433cc82-3e2a-11f0-a644-8c47be25572d",
+                  "prod_name": "حاسوب محمول",
+                  "prod_min_dec": "حاسوب محمول بشاشة 15.6 بوصة ومعالج i7",
+                  "prod_doc": "",
+                  "prod_price": 0,
+                  "main_img": "https://example.com/laptops/main.jpg",
+                  "categories_id": "أجهزة كمبيوتر"
+                },
+                {
+                  "prod_id": "ce0b3e75-3e2b-11f0-b006-8c47be25572d",
+                  "prod_name": "جهاز لوحي",
+                  "prod_min_dec": "تابلت بشاشة 10.1 بوصة وذاكرة 64GB",
+                  "prod_doc": "",
+                  "prod_price": 0,
+                  "main_img": "https://example.com/tablets/main.jpg",
+                  "categories_id": "أجهزة لوحية"
+                },
+                {
+                  "prod_id": "d34516b8-3e2b-11f0-b006-8c47be25572d",
+                  "prod_name": "شاشة عرض",
+                  "prod_min_dec": "شاشة LED بدقة 4K مقاس 32 بوصة",
+                  "prod_doc": "",
+                  "prod_price": 0,
+                  "main_img": "https://example.com/monitors/main.jpg",
+                  "categories_id": "شاشات"
+                }
+              ]
+            }
+          }
+        }
+      }
+    }
+  },
+  "/product/": {
+    "get": {
+      "tags": ["Product"],
+      "summary": "Get all products",
+      "responses": {
+        "200": {
+          "description": "OK",
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "product_id": {
+                      "type": "string"
+                    },
+                    "prod_name": {
+                      "type": "string"
+                    },
+                    "prod_min_dec": {
+                      "type": "string"
+                    },
+                    "prod_doc": {
+                      "type": "string"
+                    },
+                    "prod_price": {
+                      "type": "number"
+                    },
+                    "main_img": {
+                      "type": "string"
+                    },
+                    "categories": {
+                      "type": "string"
+                    },
+                    "product_status": {
+                      "type": "bool"
+                    }
+                  }
+                }
+              },
+              "example": [
+                {
+                  "product_id": "01JXQJH382NJ7JG44NDK5F1DPQ",
+                  "prod_name": "new prod",
+                  "prod_min_dec": "sm desc",
+                  "prod_doc": "",
+                  "prod_price": 50,
+                  "main_img": "1749916617602865258_photo_2025-06-12_23-27-46.jpg",
+                  "categories": "(UNI)",
+                  "product_status": true
+                }
+              ]
+            }
+          }
+        }
+      }
+    }
+  },
+  "/product/Categorie/{value}": {
+    "get": {
+      "tags": ["Product"],
+      "summary": "Get products by category",
+      "description": "retrieves products by category.",
+      "parameters": [
+        {
+          "name": "value",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        }
+      ],
+      "responses": {
+        "200": {
+          "description": "OK",
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "prod_id": {
+                      "type": "string"
+                    },
+                    "prod_name": {
+                      "type": "string"
+                    },
+                    "prod_min_dec": {
+                      "type": "string"
+                    },
+                    "prod_doc": {
+                      "type": "string"
+                    },
+                    "prod_price": {
+                      "type": "number"
+                    },
+                    "main_img": {
+                      "type": "string"
+                    },
+                    "categories_id": {
+                      "type": "string"
+                    }
+                  }
+                }
+              },
+              "example": [
+                {
+                  "prod_id": "d34516b8-3e2b-11f0-b006-8c47be25572d",
+                  "prod_name": "شاشة عرض",
+                  "prod_min_dec": "شاشة LED بدقة 4K مقاس 32 بوصة",
+                  "prod_doc": "",
+                  "prod_price": 0,
+                  "main_img": "https://example.com/monitors/main.jpg",
+                  "categories_id": "شاشات"
+                }
+              ]
+            }
+          }
+        }
+      }
+    }
+  },
+  "/product/contentprod/{prod_id}": {
+    "get": {
+      "tags": ["Product"],
+      "summary": "Get product content",
+      "parameters": [
+        {
+          "name": "prod_id",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        }
+      ],
+      "responses": {
+        "200": {
+          "description": "OK",
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "ProductsID": {
+                    "type": "string"
+                  },
+                  "ProductsName": {
+                    "type": "string"
+                  },
+                  "ProductsShortDes": {
+                    "type": "string"
+                  },
+                  "ProductsDescription": {
+                    "type": "string"
+                  },
+                  "Price": {
+                    "type": "number"
+                  },
+                  "ImgURl": {
+                    "type": "string"
+                  },
+                  "ImgesURL": {
+                    "type": "array",
+                    "items": {
+                      "type": "string"
+                    }
+                  },
+                  "Size": {
+                    "type": "array",
+                    "items": {
+                      "type": "string"
+                    },
+                    "nullable": true
+                  },
+                  "Color": {
+                    "type": "array",
+                    "items": {
+                      "type": "string"
+                    }
+                  },
+                  "Categories": {
+                    "type": "string"
+                  }
+                }
+              },
+              "example": {
+                "ProductsID": "2733f532-3a7b-11f0-8217-8c47be25572d",
+                "ProductsName": "هاتف ذكي",
+                "ProductsShortDes": "أحدث هاتف ذكي بشاشة 6.5 بوصة",
+                "ProductsDescription": "هاتف ذكي بمعالج ثماني النواة، كاميرا ثلاثية العدسة، شاشة AMOLED",
+                "Price": 1599.99,
+                "ImgURl": "https://example.com/phones/main.jpg",
+                "ImgesURL": [
+                  "https://example.com/phones/1.jpg",
+                  "https://example.com/phones/2.jpg"
+                ],
+                "Size": null,
+                "Color": ["أسود", "أزرق", "فضي"],
+                "Categories": "2"
               }
             }
           }
