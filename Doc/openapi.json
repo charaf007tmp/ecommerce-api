@@ -705,6 +705,153 @@
         }
       }
     },
+    "/Admin/Orders": {
+      "get": {
+        "tags": ["Admin"],
+        "summary": "Get all orders",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "order_id": { "type": "string" },
+                      "full_name": { "type": "string" },
+                      "user_state": { "type": "string" },
+                      "user_city": { "type": "string" },
+                      "full_address": { "type": "string" },
+                      "phone_number": { "type": "string" },
+                      "total_price": { "type": "number" },
+                      "product_time": { "type": "string" },
+                      "orderitem": {
+                        "type": "array",
+                        "items": {
+                          "type": "object",
+                          "properties": {
+                            "orderitem_id": { "type": "string" },
+                            "product_id": { "type": "string" },
+                            "order_id": { "type": "string" },
+                            "quantity": { "type": "integer" },
+                            "sizes_omitempty": { "type": "string" },
+                            "colors_omitempty": { "type": "string" },
+                            "status_omitempty": { "type": "string" }
+                          }
+                        }
+                      }
+                    }
+                  }
+                },
+                "example": [
+                  {
+                    "order_id": "01K277W2D0VHPT1T1EVC8KBMKA",
+                    "full_name": "John Doe",
+                    "user_state": "California",
+                    "user_city": "Los Angeles",
+                    "full_address": "123 Sunset Boulevard, Apt 45",
+                    "phone_number": "0664418964",
+                    "total_price": 2500,
+                    "product_time": "2025-08-09 12:01",
+                    "orderitem": [
+                      {
+                        "orderitem_id": "01K277W2RBR3R9N7CVWSN9Z06Z",
+                        "product_id": "01JXQZ6HVR2QGW834SXHZKE44R",
+                        "order_id": "01K277W2D0VHPT1T1EVC8KBMKA",
+                        "quantity": 1,
+                        "sizes_omitempty": "XL",
+                        "colors_omitempty": "red",
+                        "status_omitempty": "New"
+                      }
+                    ]
+                  }
+                ]
+              }
+            }
+          }
+        }
+      }
+    },
+    "/Admin/Orders/{orderitemid}/{status}": {
+      "put": {
+        "tags": ["Admin"],
+        "summary": "Update order item status",
+        "parameters": [
+          {
+            "name": "orderitemid",
+            "in": "path",
+            "required": true,
+            "schema": { "type": "string" }
+          },
+          {
+            "name": "status",
+            "in": "path",
+            "required": true,
+            "schema": { "type": "string" }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "ProdID": { "type": "string" },
+                    "message": { "type": "string" },
+                    "status": { "type": "string" }
+                  }
+                },
+                "example": {
+                  "ProdID": "01K2766S8VF93NK8MTVM2YEJ5Z",
+                  "message": "Events updated successfully",
+                  "status": "success"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/Admin/Orders/{orderid}": {
+      "delete": {
+        "tags": ["Admin"],
+        "summary": "Delete order",
+        "parameters": [
+          {
+            "name": "orderid",
+            "in": "path",
+            "required": true,
+            "schema": { "type": "string" }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "id": { "type": "string" },
+                    "message": { "type": "string" },
+                    "status": { "type": "string" }
+                  }
+                },
+                "example": {
+                  "id": "01K2766S1ZYNMBMN2VN2M63BSZ",
+                  "message": "order has been deleted successfully",
+                  "status": "success"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/user/Search/{value}": {
       "get": {
         "tags": ["User"],
@@ -736,67 +883,41 @@
               "schema": {
                 "type": "object",
                 "properties": {
-                  "full_name": {
-                    "type": "string"
-                  },
-                  "user_state": {
-                    "type": "string"
-                  },
-                  "user_city": {
-                    "type": "string"
-                  },
-                  "full_address": {
-                    "type": "string"
-                  },
-                  "total_price": {
-                    "type": "number"
-                  },
+                  "full_name": { "type": "string" },
+                  "user_state": { "type": "string" },
+                  "user_city": { "type": "string" },
+                  "full_address": { "type": "string" },
+                  "phone_number": { "type": "string" },
+                  "total_price": { "type": "number" },
                   "orderitem": {
                     "type": "array",
                     "items": {
                       "type": "object",
                       "properties": {
-                        "product_id": {
-                          "type": "string"
-                        },
-                        "quantity": {
-                          "type": "integer"
-                        },
-                        "sizes_omitempty": {
-                          "type": "array",
-                          "items": {
-                            "type": "string"
-                          }
-                        },
-                        "colors_omitempty": {
-                          "type": "array",
-                          "items": {
-                            "type": "string"
-                          }
-                        }
+                        "product_id": { "type": "string" },
+                        "quantity": { "type": "integer" },
+                        "sizes_omitempty": { "type": "string" },
+                        "colors_omitempty": { "type": "string" },
+                        "status_omitempty": { "type": "string" }
                       }
                     }
                   }
                 }
               },
               "example": {
-                "full_name": "black",
-                "user_state": "Mila",
-                "user_city": "city",
-                "full_address": "full address",
+                "full_name": "John Doe",
+                "user_state": "California",
+                "user_city": "Los Angeles",
+                "full_address": "123 Sunset Boulevard, Apt 45",
+                "phone_number": "0664418964",
                 "total_price": 2500,
                 "orderitem": [
                   {
-                    "product_id": "01JXMW1TJR5G7Z5G4FGH257CEN",
-                    "quantity": 2,
-                    "sizes_omitempty": ["Xl", "XS"],
-                    "colors_omitempty": ["red", "blue"]
-                  },
-                  {
-                    "product_id": "01JXMW32RR5GRKQ821QK677KGK",
-                    "quantity": 2,
-                    "sizes_omitempty": ["Xl", "XXL"],
-                    "colors_omitempty": ["red", "blue"]
+                    "product_id": "01JXQZ6HVR2QGW834SXHZKE44R",
+                    "quantity": 1,
+                    "sizes_omitempty": "XL",
+                    "colors_omitempty": "red",
+                    "status_omitempty": "New"
                   }
                 ]
               }
@@ -804,8 +925,25 @@
           }
         },
         "responses": {
-          "200": {
-            "description": "OK"
+          "201": {
+            "description": "Created",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "OrderID": { "type": "string" },
+                    "message": { "type": "string" },
+                    "status": { "type": "string" }
+                  }
+                },
+                "example": {
+                  "OrderID": "",
+                  "message": "Order created successfully",
+                  "status": "successfully"
+                }
+              }
+            }
           }
         }
       }
@@ -1178,7 +1316,7 @@
                     "https://example.com/phones/2.jpg"
                   ],
                   "Size": null,
-                  "Color": ["أسود" , "أزرق", "فضي"],
+                  "Color": ["أسود", "أزرق", "فضي"],
                   "Categories": "2"
                 }
               }
